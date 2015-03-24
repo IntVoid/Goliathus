@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\Ships\EnemyFactory.cpp" />
+    <ClCompile Include="Game\Ships\ShipBaseStats.cpp" />
     <ClCompile Include="Game\Ships\ShipBuilder.cpp" />
     <ClCompile Include="Game\Items\Turrets\Turret.cpp" />
     <ClCompile Include="Game\Items\Turrets\TurretAdapter.cpp" />
@@ -88,10 +89,8 @@
     <ClCompile Include="Game\Ships\ShipSystems\CrewSystem.cpp" />
     <ClCompile Include="Game\Ships\ShipSystems\PowerSystem.cpp" />
     <ClCompile Include="Game\Ships\ShipSystems\TurretSystem.cpp" />
-    <ClCompile Include="Game\Ships\ShipTypes\Cruisers\Cruiser.cpp" />
-    <ClCompile Include="Game\Ships\ShipTypes\Destroyers\Destroyer.cpp" />
-    <ClCompile Include="Game\Ships\ShipTypes\Flagships\Dreadnaught.cpp" />
-    <ClCompile Include="Game\Ships\ShipTypes\Frigates\Frigate.cpp" />
+    <ClCompile Include="Game\Ships\ShipTypes\ShipStatistics.cpp" />
+    <ClCompile Include="Game\Ships\ShipTypes\ShipTypes.cpp" />
     <ClCompile Include="System\Core\Game.cpp" />
     <ClCompile Include="System\Core\Interface\Menu\Menu.cpp" />
     <ClCompile Include="System\Main.cpp" />
@@ -99,20 +98,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Ships\EnemyFactory.h" />
+    <ClInclude Include="Game\Ships\ShipBaseStats.h" />
     <ClInclude Include="Game\Ships\ShipBuilder.h" />
     <ClInclude Include="Game\Items\Turrets\Turret.h" />
     <ClInclude Include="Game\Items\Turrets\TurretAdapter.h" />
     <ClInclude Include="Game\Items\Turrets\TurretGroup.h" />
     <ClInclude Include="Game\Items\Turrets\TurretType.h" />
     <ClInclude Include="Game\Ships\Ship.h" />
-    <ClInclude Include="Game\Ships\ShipBuilderIncludes.h" />
     <ClInclude Include="Game\Ships\ShipSystems\CrewSystem.h" />
     <ClInclude Include="Game\Ships\ShipSystems\PowerSystem.h" />
     <ClInclude Include="Game\Ships\ShipSystems\TurretSystem.h" />
-    <ClInclude Include="Game\Ships\ShipTypes\Cruisers\Cruiser.h" />
-    <ClInclude Include="Game\Ships\ShipTypes\Destroyers\Destroyer.h" />
-    <ClInclude Include="Game\Ships\ShipTypes\Flagships\Dreadnaught.h" />
-    <ClInclude Include="Game\Ships\ShipTypes\Frigates\Frigate.h" />
+    <ClInclude Include="Game\Ships\ShipTypes\ShipStatistics.h" />
+    <ClInclude Include="Game\Ships\ShipTypes\ShipTypes.h" />
     <ClInclude Include="System\Core\Game.h" />
     <ClInclude Include="System\Core\Interface\Menu\Menu.h" />
     <ClInclude Include="System\Mechanics\EnumTranslator.h" />

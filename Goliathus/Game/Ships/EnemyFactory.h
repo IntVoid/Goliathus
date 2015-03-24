@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ShipBuilderIncludes.h"
+#include "ShipTypes/ShipTypes.h"
 
 // Factory to build enemy ships. It utilizes the ShipBuilder to expedite
 // the process

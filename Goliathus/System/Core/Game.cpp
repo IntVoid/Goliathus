@@ -6,6 +6,9 @@ namespace GAME {
 
 	// Singleton
 	extern Ship* playerShip = nullptr;
+
+	// Flyweight
+	FrigateBaseStats frigateBase;
 	
 	EnemyFactory* enemyFactory;
 	vector<Ship*> _beginnerShipsVector;
@@ -118,6 +121,7 @@ namespace GAME {
 			}
 	
 			void OutfitPlayerShip() {
+				playerShip->ShipReadout();
 				cout << "Generating Enemy Ship" << endl;
 				Ship* enemyFrigate = enemyFactory->NewEnemyShip(ShipType::Frigate, ShipDesignation::Offense);
 				enemyFrigate->ShipReadout();

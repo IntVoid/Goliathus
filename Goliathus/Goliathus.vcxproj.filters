@@ -51,22 +51,19 @@
     <ClCompile Include="Game\Ships\ShipSystems\TurretSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Ships\ShipTypes\Cruisers\Cruiser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Ships\ShipTypes\Destroyers\Destroyer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Ships\ShipTypes\Flagships\Dreadnaught.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Ships\ShipTypes\Frigates\Frigate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="System\Core\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Ships\EnemyFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Ships\ShipTypes\ShipStatistics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Ships\ShipTypes\ShipTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Ships\ShipBaseStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,21 +104,6 @@
     <ClInclude Include="Game\Ships\ShipSystems\TurretSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Ships\ShipTypes\Cruisers\Cruiser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Ships\ShipTypes\Destroyers\Destroyer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Ships\ShipTypes\Flagships\Dreadnaught.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Ships\ShipTypes\Frigates\Frigate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Ships\ShipBuilderIncludes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="System\Mechanics\EnumTranslator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -129,6 +111,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Ships\EnemyFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Ships\ShipTypes\ShipStatistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Ships\ShipTypes\ShipTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Ships\ShipBaseStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

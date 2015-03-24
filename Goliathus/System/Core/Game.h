@@ -3,6 +3,7 @@
 #include "Interface/Menu/Menu.h"
 #include "../../Game/Items/Turrets/TurretAdapter.h"
 #include "../../Game/Ships/EnemyFactory.h"
+#include "../../Game/Ships/ShipBaseStats.h"
 
 namespace GAME {
 

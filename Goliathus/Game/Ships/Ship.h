@@ -5,6 +5,8 @@
 #include "./ShipSystems/TurretSystem.h"
 #include "../Items/Turrets/Turret.h"
 
+#include "ShipBaseStats.h"
+
 #include <memory>
 #include <map>
 
@@ -25,6 +27,7 @@ enum class ShipState {
 
 // Possible Types the Ship could be.
 enum class ShipType {
+	Empty,
 	Fighter, Interceptor, Bomber, Recon,
 	LightFrigate, Frigate, SupportFrigate, HeavyFrigate,
 	Destroyer, HeavyDestroyer, SupportDestroyer,
@@ -35,6 +38,7 @@ enum class ShipType {
 
 // Possible Roles the Ship could fill.
 enum class ShipDesignation {
+	Empty,
 	Offense, Defense,
 	Support, Recon
 };
@@ -47,11 +51,13 @@ protected:
 	ShipType shipType;
 	ShipDesignation shipDesignation;
 	ShipState shipState;
+	ShipBaseStats *shipBaseStats;
 public:
 	Ship();
 	~Ship();
 	void SetShipType(ShipType _shipType);
 	void SetDesignation(ShipDesignation _shipDesignation);
+	void SetBaseStats(ShipBaseStats &_shipBaseStats);
 	void SetShipPower();
 	void SetShipTurretCount();
 	void SetShipCrewCount();
@@ -61,10 +67,9 @@ public:
 	ShipDesignation getShipDesignation();
 	ShipState getShipState();
 private:
-	float hullStrength;
-	float shieldStrength;
-	float turretSlotCount;
-	float crewCount;
+	float currentHullStrength;
+	float currentShieldStrength;
+	float availableTurretSlots;
 	unique_ptr<ShipPowerSystem> shipPowerSystem;
 	unique_ptr<ShipTurretSystem> shipTurretSystem;
 	unique_ptr<ShipCrewSystem> shipCrewSystem;

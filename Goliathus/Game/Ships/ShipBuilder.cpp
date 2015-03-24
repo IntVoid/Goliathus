@@ -1,5 +1,9 @@
 #include "ShipBuilder.h"
 
+//////////////////////////////////////////////////////////////////////////
+// SHIP BUILDER
+//////////////////////////////////////////////////////////////////////////
+
 ShipBuilder::ShipBuilder() {
 
 }
@@ -17,6 +21,10 @@ void ShipBuilder::buildShip() {
 	ship = new Ship();
 }
 
+//////////////////////////////////////////////////////////////////////////
+// SHIP CREATOR
+//////////////////////////////////////////////////////////////////////////
+
 void ShipCreator::setShipBuilder(ShipBuilder* _shipBuilderType) {
 	shipBuilder = _shipBuilderType;
 }
@@ -27,6 +35,7 @@ Ship* ShipCreator::getShip() {
 
 void ShipCreator::createShip() {
 	shipBuilder->buildShip();
-	shipBuilder->buildHull();
-	shipBuilder->buildDesignation();
+	shipBuilder->buildShipType();
+	shipBuilder->buildShipDesignation();
+	shipBuilder->buildShipStats();
 }

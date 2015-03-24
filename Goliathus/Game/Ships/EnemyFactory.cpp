@@ -25,4 +25,6 @@ Ship *EnemyFactory::NewEnemyShip(ShipType _shipType, ShipDesignation _shipDesign
 		return cruiserShip;
 	}
 
+	return nullptr;
+
 }

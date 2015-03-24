@@ -32,6 +32,7 @@ ostream& operator<<(ostream& out, const ShipType value) {
 	static map<ShipType, string> shipTypeMap;
 	if (shipTypeMap.size() == 0) {
 #define INSERT_ELEMENT(p) shipTypeMap[p] = #p
+		INSERT_ELEMENT(ShipType::Empty);
 		INSERT_ELEMENT(ShipType::Fighter);
 		INSERT_ELEMENT(ShipType::Interceptor);
 		INSERT_ELEMENT(ShipType::Bomber);
@@ -65,6 +66,7 @@ ostream& operator<<(ostream& out, const ShipDesignation value) {
 	static map<ShipDesignation, string> shipDesignationMap;
 	if (shipDesignationMap.size() == 0) {
 #define INSERT_ELEMENT(p) shipDesignationMap[p] = #p
+		INSERT_ELEMENT(ShipDesignation::Empty);
 		INSERT_ELEMENT(ShipDesignation::Offense);
 		INSERT_ELEMENT(ShipDesignation::Defense);
 		INSERT_ELEMENT(ShipDesignation::Support);
@@ -79,13 +81,13 @@ Ship::Ship() {
 	unique_ptr<ShipPowerSystem> shipPowerSystem;
 	unique_ptr<ShipTurretSystem> shipTurretSystem;
 	unique_ptr<ShipCrewSystem> shipCrewSystem;
-	this->shipType = ShipType::Fighter;
-	this->shipDesignation = ShipDesignation::Offense;
+	ShipBaseStats *shipBaseStats = nullptr;
+	this->shipType = ShipType::Empty;
+	this->shipDesignation = ShipDesignation::Empty;
 	this->shipState = ShipState::NORMAL;
-	this->hullStrength = 0;
-	this->shieldStrength = 0;
-	this->turretSlotCount = 0;
-	this->crewCount = 0;
+	this->currentHullStrength = 0.0;
+	this->currentShieldStrength = 0.0;
+	this->availableTurretSlots = 0;
 }
 
 Ship::~Ship() {
@@ -98,6 +100,10 @@ void Ship::SetShipType(ShipType _shipType) {
 
 void Ship::SetDesignation(ShipDesignation _shipDesignation) {
 	shipDesignation = _shipDesignation;
+}
+
+void Ship::SetBaseStats(ShipBaseStats &_shipBaseStats) {
+	shipBaseStats = &_shipBaseStats;
 }
 
 void Ship::SetShipPower() {
@@ -118,8 +124,10 @@ void Ship::ShipReadout() {
 	cout << "Ship State: " << shipState << endl;
 	cout << "Ship Type: " << shipType << endl;
 	cout << "Ship Designation: " << shipDesignation << endl;
-	cout << "Total Available Turrets: " << turretSlotCount << endl;
-	cout << "Total Crew: " << crewCount << endl;
+	cout << "Total Available Turrets: " << shipBaseStats->maxTurretSlots << endl;
+	cout << "Total Crew: " << shipBaseStats->maxCrewCount << endl;
+	cout << "Max Hull: " << shipBaseStats->maxHullStrength << endl;
+	cout << "Max Shield: " << shipBaseStats->maxShieldStrength << endl;
 }
 
 void Ship::getShipTypeName() {

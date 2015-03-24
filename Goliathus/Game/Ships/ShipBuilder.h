@@ -11,8 +11,12 @@ public:
 	virtual ~ShipBuilder();
 	Ship* getShip();
 	void buildShip();
-	virtual void buildHull() = 0;
-	virtual void buildDesignation() = 0;
+	virtual void buildShipType() = 0;
+	virtual void buildShipDesignation() = 0;
+	virtual void buildShipStats() = 0;
+	virtual void buildShipTurretSubSystem() = 0;
+	virtual void buildShipPowerSubSystem() = 0;
+	virtual void buildShipCrewSubSystem() = 0;
 protected:
 	Ship* ship;
 };
