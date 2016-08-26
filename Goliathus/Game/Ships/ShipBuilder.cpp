@@ -1,5 +1,7 @@
 #include "ShipBuilder.h"
 
+//TODO: Builder Structure / Body
+
 //////////////////////////////////////////////////////////////////////////
 // SHIP BUILDER
 //////////////////////////////////////////////////////////////////////////
@@ -33,9 +35,13 @@ Ship* ShipCreator::getShip() {
 	return shipBuilder->getShip();
 }
 
+// This calls all necessary functions to build all the components of the object
 void ShipCreator::createShip() {
 	shipBuilder->buildShip();
 	shipBuilder->buildShipType();
 	shipBuilder->buildShipDesignation();
 	shipBuilder->buildShipStats();
+	shipBuilder->buildShipCrewSubSystem();
+	shipBuilder->buildShipPowerSubSystem();
+	shipBuilder->buildShipTurretSubSystem();
 }

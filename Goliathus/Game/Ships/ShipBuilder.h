@@ -2,6 +2,8 @@
 
 #include "Ship.h"
 
+//TODO: Builder Structure / Header
+
 // This is the ship builder, it concerns itself
 // in building the different types of ships possible
 // in the game with ease.

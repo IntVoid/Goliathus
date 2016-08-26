@@ -43,10 +43,17 @@ namespace GAME {
 				if (_beginnerShipsVector.size() != 0)
 					_beginnerShipsVector.clear();
 	
+				//TODO: Implementation of Builder
+
+				// Define the creator
 				ShipCreator shipCreator;
+				// Define the builder as a new object pointer
 				ShipBuilder* frigateBuilder(new FrigateBuilder);
+				// Call the creator to set up the builder and pass it the necessary parameters
 				shipCreator.setShipBuilder(frigateBuilder);
+				// Calls the creator to create the ship.
 				shipCreator.createShip();
+				// Creates an object pointer and sets it to the result from the creator.
 				Ship* frigateShip = shipCreator.getShip();
 				_beginnerShipsVector.push_back(frigateShip);
 		

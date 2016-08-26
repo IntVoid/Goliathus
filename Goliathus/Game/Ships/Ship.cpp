@@ -94,6 +94,7 @@ Ship::~Ship() {
 
 }
 
+//TODO: Builder Object. This is the Object that is being created when the Builder is used.
 void Ship::SetShipType(ShipType _shipType) {
 	shipType = _shipType;
 }
@@ -107,7 +108,7 @@ void Ship::SetBaseStats(ShipBaseStats &_shipBaseStats) {
 }
 
 void Ship::SetShipPower() {
-	shipPowerSystem->beginPowerDistribution();
+	//shipPowerSystem->beginPowerDistribution();
 }
 
 void Ship::SetShipTurretCount() {
