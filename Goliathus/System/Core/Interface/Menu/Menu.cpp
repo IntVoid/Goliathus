@@ -59,6 +59,14 @@ namespace MENU {
 			return input;
 		}
 
+		int CommanderCreationMenu() {
+			system("CLS");
+			choices = 1;
+			cout << "Welcome Commander, before we can process your application the IFS requires full" << endl;
+			cout << "disclosure of your personal information. Please fill out the following paperwork" << endl;
+			cout << "and we can get going.\n" << endl;
+		}
+
 		int TurretSelectionMenu() {
 			return input;
 		}
