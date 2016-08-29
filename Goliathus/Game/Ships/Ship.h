@@ -58,7 +58,8 @@ public:
 	void SetShipType(ShipType _shipType);
 	void SetDesignation(ShipDesignation _shipDesignation);
 	void SetBaseStats(ShipBaseStats &_shipBaseStats);
-	void SetShipPower();
+	void SetShipPower(ShipPowerSystem &_shipPower);
+	void SetShipTurrets(ShipTurretSystem &_shipTurrets);
 	void SetShipTurretCount();
 	void SetShipCrewCount();
 	void ShipReadout();

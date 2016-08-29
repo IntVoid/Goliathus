@@ -65,6 +65,10 @@ namespace MENU {
 			cout << "Welcome Commander, before we can process your application the IFS requires full" << endl;
 			cout << "disclosure of your personal information. Please fill out the following paperwork" << endl;
 			cout << "and we can get going.\n" << endl;
+
+			cout << "Let's get started then!" << endl;
+			input = ReadNumericOption(choices);
+			return input;
 		}
 
 		int TurretSelectionMenu() {

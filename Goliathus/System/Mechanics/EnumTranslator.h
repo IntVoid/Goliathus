@@ -7,6 +7,9 @@
 
 using namespace std;
 
+// TODO: Remove EnumTranslator as it was replaced with the override
+// of the cout operation.
+
 /* This is a translator design pattern. It is designed to use
 templates to help output enumerations as strings. This enables
 me to use Enumerators as labels and be able to easily and more

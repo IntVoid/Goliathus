@@ -42,23 +42,27 @@ namespace GAME {
 				// Ensure that the list is empty to begin with.
 				if (_beginnerShipsVector.size() != 0)
 					_beginnerShipsVector.clear();
-	
-				//TODO: Implementation of Builder
 
-				// Define the creator
-				ShipCreator shipCreator;
-				// Define the builder as a new object pointer
-				ShipBuilder* frigateBuilder(new FrigateBuilder);
-				// Call the creator to set up the builder and pass it the necessary parameters
-				shipCreator.setShipBuilder(frigateBuilder);
-				// Calls the creator to create the ship.
-				shipCreator.createShip();
-				// Creates an object pointer and sets it to the result from the creator.
-				Ship* frigateShip = shipCreator.getShip();
-				_beginnerShipsVector.push_back(frigateShip);
+				////////////////////////////////////////////////////////////////////////////////////////
+				// Use of the Builder Design Pattern.
+				////////////////////////////////////////////////////////////////////////////////////////
+				// Below functionality can be abstracted farther into a single function wrapper
+				// Ideal operation is where we only call one 'Building' where it recieves our
+				// designation of what we want. Then handles the delegation of creating the necessary
+				// Creator, Builder and Object, then returns the object, so it insulates the mechanics.
+				// For our purposes, this operation is just fine.
+				////////////////////////////////////////////////////////////////////////////////////////
+
+				ShipCreator shipCreator;							// Define the Creator, who we will be out interface to all of our different builders.
+
+				ShipBuilder* frigateBuilder(new FrigateBuilder);	// Then Define the type of builder we wish to use.
+				shipCreator.setShipBuilder(frigateBuilder);			// Call the creator to set up the builder and pass it the necessary parameters
+				shipCreator.createShip();							// The Creator then gives the Builder its build order
+				Ship* frigateShip = shipCreator.getShip();			// Creates an object pointer and sets it to the result from the creator.
+				_beginnerShipsVector.push_back(frigateShip);		// This adds our newly created object into a vector for later use.
 		
-				delete frigateBuilder;
-				frigateBuilder = nullptr;
+				delete frigateBuilder;								// Clean up our builder and delete it
+				frigateBuilder = nullptr;							// Set the builder to a nullptr.
 		
 				ShipBuilder* cruiserBuilder(new CruiserBuilder);
 				shipCreator.setShipBuilder(cruiserBuilder);
@@ -81,7 +85,7 @@ namespace GAME {
 				return;
 			}
 	
-			// Creates player ship depending on choice provided
+			// Sets player ship depending on choice provided
 			void CreatePlayerShip() {
 				input = MENU::PLAYERCREATIONMENU::ShipSelectionMenu();
 				string shipChoice = "nothing";
@@ -139,7 +143,7 @@ namespace GAME {
 	}
 
 	void InitializeShipSubSystems(Ship _ship) {
-		_ship.SetShipPower();
+		//_ship.SetShipPower();
 	}
 
 	

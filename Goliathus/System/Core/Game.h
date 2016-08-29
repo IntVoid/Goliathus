@@ -9,9 +9,6 @@ namespace GAME {
 
 	bool RunGame();
 
-	//void InitializeShip();
-	//void InitializeShipSubSystems();
-
 	namespace SETUP {
 
 		namespace PLAYER {

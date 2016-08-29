@@ -2,6 +2,7 @@
 
 using namespace ShipBuilderType;
 
+// Here we see a Factory utilizing the same very ship builder.
 Ship *EnemyFactory::NewEnemyShip(ShipType _shipType, ShipDesignation _shipDesignation) {
 
 	ShipCreator shipCreator;

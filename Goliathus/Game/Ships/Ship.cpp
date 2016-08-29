@@ -2,9 +2,16 @@
 
 using namespace std;
 
+#pragma region ostream override
+
+/////////////////////////////////////////////////////////////////////////////////
 // Translator Design Pattern used with a Hash Map implementation & Overriding
 // to help print out the string values of enumerators. I override
 // the ostream operator to search for the appropriate values needed.
+// This was done to easily output descriptive enumerators so I could avoid
+// having multiple annoying case statements to output strings depending on the
+// enumerator case.
+/////////////////////////////////////////////////////////////////////////////////
 ostream& operator<<(ostream& out, const ShipState value) {
 #define BEGINSTRING 11
 #define ENDSTRING 31
@@ -76,6 +83,8 @@ ostream& operator<<(ostream& out, const ShipDesignation value) {
 	return out << shipDesignationMap[value].substr(BEGINSTRING, ENDSTRING);
 }
 
+#pragma endregion ostream override
+
 // Basic initialization of critical ship dependencies
 Ship::Ship() {
 	unique_ptr<ShipPowerSystem> shipPowerSystem;
@@ -94,7 +103,6 @@ Ship::~Ship() {
 
 }
 
-//TODO: Builder Object. This is the Object that is being created when the Builder is used.
 void Ship::SetShipType(ShipType _shipType) {
 	shipType = _shipType;
 }
@@ -107,12 +115,16 @@ void Ship::SetBaseStats(ShipBaseStats &_shipBaseStats) {
 	shipBaseStats = &_shipBaseStats;
 }
 
-void Ship::SetShipPower() {
-	//shipPowerSystem->beginPowerDistribution();
+void Ship::SetShipPower(ShipPowerSystem &_shipPower) {
+	//shipPowerSystem = &_shipPower;
+}
+
+void Ship::SetShipTurrets(ShipTurretSystem &_shipTurrets) {
+	//shipTurretSystem = &_shipTurrets;
 }
 
 void Ship::SetShipTurretCount() {
-
+	
 }
 
 void Ship::SetShipCrewCount() {
@@ -128,7 +140,7 @@ void Ship::ShipReadout() {
 	cout << "Total Available Turrets: " << shipBaseStats->maxTurretSlots << endl;
 	cout << "Total Crew: " << shipBaseStats->maxCrewCount << endl;
 	cout << "Max Hull: " << shipBaseStats->maxHullStrength << endl;
-	cout << "Max Shield: " << shipBaseStats->maxShieldStrength << endl;
+	cout << "Max Shield: " << shipBaseStats->maxShieldStrength << endl << endl;
 }
 
 void Ship::getShipTypeName() {
@@ -156,6 +168,10 @@ void Ship::ShipTurretReadout() {
 }
 
 void Ship::ShipPowerReadout() {
+
+}
+
+void Ship::ShipOnDeath() {
 
 }
 
