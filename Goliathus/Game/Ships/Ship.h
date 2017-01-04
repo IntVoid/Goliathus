@@ -51,21 +51,38 @@ protected:
 	ShipType shipType;
 	ShipDesignation shipDesignation;
 	ShipState shipState;
-	ShipBaseStats *shipBaseStats;
+	ShipBaseStats shipBaseStats;
 public:
 	Ship();
 	~Ship();
-	void SetShipType(ShipType _shipType);
-	void SetDesignation(ShipDesignation _shipDesignation);
-	void SetBaseStats(ShipBaseStats &_shipBaseStats);
-	void SetShipPower();
-	void SetShipTurretCount();
-	void SetShipCrewCount();
+
+	/* Set Functions */
+	void SetShipType(ShipType _shipType) { shipType = _shipType; };
+	void SetDesignation(ShipDesignation _shipDesignation) { shipDesignation = _shipDesignation; };
+	void SetBaseStats(ShipBaseStats _shipBaseStats) { shipBaseStats = _shipBaseStats; };
+	void SetShipPower() { shipPowerSystem->beginPowerDistribution(); };
+	void SetShipMaxTurretCount(int _turretCount) { shipBaseStats.maxTurretSlots = _turretCount; };
+	void SetShipCrewCount(int _crewCount) { shipBaseStats.maxCrewCount = _crewCount; };
+	void SetShipState(ShipState _shipState) { shipState = _shipState; };
+	void SetShipCurrentHull(float _currentHull) { currentHullStrength = _currentHull; };
+	void SetShipCurrentShield(float _currentShield) { currentShieldStrength = _currentShield; };
 	void ShipReadout();
+
+	/* Adjust Functions */
+	void AdjustCurrentHull(float _modifer) { currentHullStrength += _modifer; };
+	void AdjustCurrentShield(float _modifier) { currentShieldStrength += _modifier; };
+
+	/* Get Functions */
 	void getShipTypeName();
-	ShipType getShipType();
-	ShipDesignation getShipDesignation();
-	ShipState getShipState();
+	int& getShipMaxTurretCount() { return shipBaseStats.maxTurretSlots; };
+	float& getShipMaxHullStrength() { return shipBaseStats.maxHullStrength; };
+	float& getShipCurrentHull() { return currentHullStrength; };
+	float& getShipMaxShieldStrength() { return shipBaseStats.maxShieldStrength; };
+	float& getShipCurrentShield() { return currentShieldStrength; };
+	int& getShipMaxCrewCount() { return shipBaseStats.maxCrewCount; };
+	ShipType getShipType() { return shipType; };
+	ShipDesignation getShipDesignation() { return shipDesignation; };
+	ShipState getShipState() { return shipState; };
 private:
 	float currentHullStrength;
 	float currentShieldStrength;

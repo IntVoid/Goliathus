@@ -54,6 +54,8 @@ namespace SYSTEM {
 		case 3: 
 			gameState = GameState::QUIT;
 			return false;
+		default:
+			return false;
 		}
 	}
 

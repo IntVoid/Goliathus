@@ -48,3 +48,16 @@ DestroyerBaseStats::DestroyerBaseStats() {
 DestroyerBaseStats::~DestroyerBaseStats() {
 
 }
+
+DreadnaughtBaseStats::DreadnaughtBaseStats() {
+	turningSpeed = 15.0;
+	accelerationRate = 25.0;
+	maxHullStrength = 1500.0;
+	maxShieldStrength = 3000.0;
+	maxTurretSlots = 20;
+	maxCrewCount = 2750;
+}
+
+DreadnaughtBaseStats::~DreadnaughtBaseStats() {
+
+}

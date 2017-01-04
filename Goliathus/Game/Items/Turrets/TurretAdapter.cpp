@@ -1,5 +1,5 @@
 #include "TurretAdapter.h"
-#include <stdlib.h>;
+#include <stdlib.h>
 
 TurretAdapter::TurretAdapter(AbstractTurretType* _TTurret) {
 	_Turret = _TTurret;
@@ -10,7 +10,7 @@ TurretAdapter::~TurretAdapter() {
 	_Turret = NULL;
 }
 
-TB_Turret TurretAdapter::offense() { return 1; }
-TB_Turret TurretAdapter::defense() { return 2; }
-TB_Turret TurretAdapter::utility() { return 3; }
-TB_Turret TurretAdapter::support() { return 4; }
+TB_Turret TurretAdapter::offense() { return NULL; }
+TB_Turret TurretAdapter::defense() { return NULL; }
+TB_Turret TurretAdapter::utility() { return NULL; }
+TB_Turret TurretAdapter::support() { return NULL; }

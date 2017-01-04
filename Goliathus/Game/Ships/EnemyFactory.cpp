@@ -21,6 +21,7 @@ Ship *EnemyFactory::NewEnemyShip(ShipType _shipType, ShipDesignation _shipDesign
 		shipCreator.setShipBuilder(cruiserBuilder);
 		shipCreator.createShip();
 		Ship* cruiserShip = shipCreator.getShip();
+		cruiserShip->SetDesignation(_shipDesignation);
 
 		return cruiserShip;
 	}

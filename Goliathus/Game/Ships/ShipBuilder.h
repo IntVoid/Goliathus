@@ -17,6 +17,7 @@ public:
 	virtual void buildShipTurretSubSystem() = 0;
 	virtual void buildShipPowerSubSystem() = 0;
 	virtual void buildShipCrewSubSystem() = 0;
+	void finalizeShip();
 protected:
 	Ship* ship;
 };
