@@ -29,3 +29,8 @@ struct DestroyerBaseStats : public ShipBaseStats {
 	DestroyerBaseStats();
 	~DestroyerBaseStats();
 };
+
+struct DreadnaughtBaseStats : public ShipBaseStats {
+	DreadnaughtBaseStats();
+	~DreadnaughtBaseStats();
+};

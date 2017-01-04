@@ -9,6 +9,7 @@ ShipBaseStats _shipBaseStats;
 FrigateBaseStats _frigateBaseStats;
 CruiserBaseStats _cruiserBaseStats;
 DestroyerBaseStats _destroyerBaseStats;
+DreadnaughtBaseStats _dreadnaughtBaseStats;
 
 //////////////////////////////////////////////////////////////////////////
 // FRIGATE BUILDER
@@ -119,7 +120,7 @@ void DreadnaughtBuilder::buildShipDesignation() {
 }
 
 void DreadnaughtBuilder::buildShipStats() {
-	
+	ship->SetBaseStats(_dreadnaughtBaseStats);
 }
 
 void DreadnaughtBuilder::buildShipTurretSubSystem() {

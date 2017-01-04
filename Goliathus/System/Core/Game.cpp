@@ -81,7 +81,7 @@ namespace GAME {
 				
 				switch (input) {
 				case 1: // Frigate
-					for (int i = 0; i < _beginnerShipsVector.size(); ++i) {
+					for (size_t i = 0, ilen = _beginnerShipsVector.size(); i < ilen; ++i) {
 						Ship* temp = _beginnerShipsVector[i];
 						if (temp->getShipType() == ShipType::Frigate) {
 							playerShip = temp;
@@ -89,7 +89,7 @@ namespace GAME {
 					}
 					break;
 				case 2: // Cruiser
-					for (int i = 0; i < _beginnerShipsVector.size(); ++i) {
+					for (size_t i = 0, ilen = _beginnerShipsVector.size(); i < ilen; ++i) {
 						Ship* temp = _beginnerShipsVector[i];
 						if (temp->getShipType() == ShipType::Cruiser) {
 							playerShip = temp;
@@ -97,7 +97,7 @@ namespace GAME {
 					}
 					break;
 				case 3: // Destroyer
-					for (int i = 0; i < _beginnerShipsVector.size(); ++i) {
+					for (size_t i = 0, ilen = _beginnerShipsVector.size(); i < ilen; ++i) {
 						Ship* temp = _beginnerShipsVector[i];
 						if (temp->getShipType() == ShipType::Destroyer) {
 							playerShip = temp;

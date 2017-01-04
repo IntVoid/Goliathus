@@ -21,6 +21,11 @@ void ShipBuilder::buildShip() {
 	ship = new Ship();
 }
 
+void ShipBuilder::finalizeShip() {
+	ship->SetShipCurrentHull(ship->getShipMaxHullStrength());
+	ship->SetShipCurrentShield(ship->getShipMaxShieldStrength());
+}
+
 //////////////////////////////////////////////////////////////////////////
 // SHIP CREATOR
 //////////////////////////////////////////////////////////////////////////
@@ -38,4 +43,5 @@ void ShipCreator::createShip() {
 	shipBuilder->buildShipType();
 	shipBuilder->buildShipDesignation();
 	shipBuilder->buildShipStats();
+	shipBuilder->finalizeShip();
 }

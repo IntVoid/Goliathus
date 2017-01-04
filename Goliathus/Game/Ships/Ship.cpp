@@ -6,8 +6,8 @@ using namespace std;
 // to help print out the string values of enumerators. I override
 // the ostream operator to search for the appropriate values needed.
 ostream& operator<<(ostream& out, const ShipState value) {
-#define BEGINSTRING 11
-#define ENDSTRING 31
+#define BEGINSTRINGA 11
+#define ENDSTRINGA 31
 	static map<ShipState, string> shipStateMap;
 	if (shipStateMap.size() == 0) {
 #define INSERT_ELEMENT(p) shipStateMap[p] = #p
@@ -22,13 +22,13 @@ ostream& operator<<(ostream& out, const ShipState value) {
 		INSERT_ELEMENT(ShipState::SHIELDED);
 #undef INSERT_ELEMENT
 	}
-	return out << shipStateMap[value].substr(BEGINSTRING, ENDSTRING);
+	return out << shipStateMap[value].substr(BEGINSTRINGA, ENDSTRINGA);
 }
 
 // As above, another Translator for ShipType Enumerator
 ostream& operator<<(ostream& out, const ShipType value) {
-#define BEGINSTRING 10
-#define	ENDSTRING 30
+#define BEGINSTRINGB 10
+#define	ENDSTRINGB 30
 	static map<ShipType, string> shipTypeMap;
 	if (shipTypeMap.size() == 0) {
 #define INSERT_ELEMENT(p) shipTypeMap[p] = #p
@@ -56,13 +56,13 @@ ostream& operator<<(ostream& out, const ShipType value) {
 		INSERT_ELEMENT(ShipType::Mothership);
 #undef INSERT_ELEMENT
 	}
-	return out << shipTypeMap[value].substr(BEGINSTRING, ENDSTRING);
+	return out << shipTypeMap[value].substr(BEGINSTRINGB, ENDSTRINGB);
 }
 
 // As above, another Translator for ShipDesignation Enumerator
 ostream& operator<<(ostream& out, const ShipDesignation value) {
-#define BEGINSTRING 17
-#define ENDSTRING 37
+#define BEGINSTRINGC 17
+#define ENDSTRINGC 37
 	static map<ShipDesignation, string> shipDesignationMap;
 	if (shipDesignationMap.size() == 0) {
 #define INSERT_ELEMENT(p) shipDesignationMap[p] = #p
@@ -73,7 +73,7 @@ ostream& operator<<(ostream& out, const ShipDesignation value) {
 		INSERT_ELEMENT(ShipDesignation::Recon);
 #undef INSERT_ELEMENT
 	}
-	return out << shipDesignationMap[value].substr(BEGINSTRING, ENDSTRING);
+	return out << shipDesignationMap[value].substr(BEGINSTRINGC, ENDSTRINGC);
 }
 
 // Basic initialization of critical ship dependencies
@@ -94,28 +94,8 @@ Ship::~Ship() {
 
 }
 
-void Ship::SetShipType(ShipType _shipType) {
-	shipType = _shipType;
-}
-
-void Ship::SetDesignation(ShipDesignation _shipDesignation) {
-	shipDesignation = _shipDesignation;
-}
-
-void Ship::SetBaseStats(ShipBaseStats &_shipBaseStats) {
-	shipBaseStats = &_shipBaseStats;
-}
-
-void Ship::SetShipPower() {
-	shipPowerSystem->beginPowerDistribution();
-}
-
-void Ship::SetShipTurretCount() {
-
-}
-
-void Ship::SetShipCrewCount() {
-
+void Ship::getShipTypeName() {
+	cout << shipType << endl;
 }
 
 // Give general feedback on ship status to user
@@ -124,26 +104,10 @@ void Ship::ShipReadout() {
 	cout << "Ship State: " << shipState << endl;
 	cout << "Ship Type: " << shipType << endl;
 	cout << "Ship Designation: " << shipDesignation << endl;
-	cout << "Total Available Turrets: " << shipBaseStats->maxTurretSlots << endl;
-	cout << "Total Crew: " << shipBaseStats->maxCrewCount << endl;
-	cout << "Max Hull: " << shipBaseStats->maxHullStrength << endl;
-	cout << "Max Shield: " << shipBaseStats->maxShieldStrength << endl;
-}
-
-void Ship::getShipTypeName() {
-	cout << shipType << endl;
-}
-
-ShipType Ship::getShipType() {
-	return shipType;
-}
-
-ShipDesignation Ship::getShipDesignation() {
-	return shipDesignation;
-}
-
-ShipState Ship::getShipState() {
-	return shipState;
+	cout << "Total Available Turrets: " << shipBaseStats.maxTurretSlots << endl;
+	cout << "Total Crew: " << shipBaseStats.maxCrewCount << endl;
+	cout << "Max Hull: " << shipBaseStats.maxHullStrength << endl;
+	cout << "Max Shield: " << shipBaseStats.maxShieldStrength << endl;
 }
 
 void Ship::ShipCrewReadout() {
