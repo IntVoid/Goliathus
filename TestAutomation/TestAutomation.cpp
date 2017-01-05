@@ -4,12 +4,10 @@
 
 #include "stdafx.h"
 
-//#define CATCH_CONFIG_MAIN
-
 #include "catch.h"
-//#include "../Goliathus/Game/Ships/Ship.h"
 #include "Game\Ships\EnemyFactory.h"
 #include "Game\Ships\ShipTypes\ShipTypes.h"
+#include <memory>
 
 TEST_CASE("Enemy Factory: Build enemy, Returns Offense Frigate", "[EnemyFactory][Frigate][Designation]")
 {
@@ -18,6 +16,11 @@ TEST_CASE("Enemy Factory: Build enemy, Returns Offense Frigate", "[EnemyFactory]
 
 	REQUIRE(enemyShip->getShipType() == ShipType::Frigate);
 	REQUIRE(enemyShip->getShipDesignation() == ShipDesignation::Offense);
+
+	delete enemyFactory;
+	enemyFactory = nullptr;
+	delete enemyShip;
+	enemyShip = nullptr;
 }
 
 TEST_CASE("Enemy Factory: Build enemy, Returns Defense Cruiser", "[EnemyFactory][Cruiser][Designation]")
@@ -27,6 +30,11 @@ TEST_CASE("Enemy Factory: Build enemy, Returns Defense Cruiser", "[EnemyFactory]
 
 	REQUIRE(enemyShip->getShipType() == ShipType::Cruiser);
 	REQUIRE(enemyShip->getShipDesignation() == ShipDesignation::Defense);
+
+	delete enemyFactory;
+	enemyFactory = nullptr;
+	delete enemyShip;
+	enemyShip = nullptr;
 }
 
 TEST_CASE("Ship Builder: Build Ship, Returns Frigate", "[ShipBuilder][Frigate]")
@@ -38,6 +46,11 @@ TEST_CASE("Ship Builder: Build Ship, Returns Frigate", "[ShipBuilder][Frigate]")
 	Ship* ship = shipCreator.getShip();
 
 	REQUIRE(ship->getShipType() == ShipType::Frigate);
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 TEST_CASE("Ship Builder: Build Ship, Returns Cruiser", "[ShipBuilder][Cruiser]")
@@ -49,6 +62,11 @@ TEST_CASE("Ship Builder: Build Ship, Returns Cruiser", "[ShipBuilder][Cruiser]")
 	Ship* ship = shipCreator.getShip();
 
 	REQUIRE(ship->getShipType() == ShipType::Cruiser);
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 TEST_CASE("Ship Builder: Build Cruiser, State Should be Normal", "[ShipBuilder][Cruiser][State]")
@@ -60,6 +78,11 @@ TEST_CASE("Ship Builder: Build Cruiser, State Should be Normal", "[ShipBuilder][
 	Ship* ship = shipCreator.getShip();
 
 	REQUIRE(ship->getShipState() == ShipState::NORMAL);
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 TEST_CASE("Ship Builder: Build Cruiser, Set State to Destroyed", "[ShipBuilder][Cruiser][State]")
@@ -72,6 +95,11 @@ TEST_CASE("Ship Builder: Build Cruiser, Set State to Destroyed", "[ShipBuilder][
 	ship->SetShipState(ShipState::DESTROYED);
 
 	REQUIRE(ship->getShipState() == ShipState::DESTROYED);
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 TEST_CASE("Ship Builder: Build Cruiser, Default Max Turrets = Cruiser Default", "[ShipBuilder][Cruiser][TurretCount]")
@@ -85,6 +113,11 @@ TEST_CASE("Ship Builder: Build Cruiser, Default Max Turrets = Cruiser Default", 
 	CruiserBaseStats defaultStats;
 
 	REQUIRE(ship->getShipMaxTurretCount() == defaultStats.maxTurretSlots);
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 TEST_CASE("Ship Builder: Build Cruiser, Set Max Turret Count = 10", "[ShipBuilder][Cruiser][TurretCount]")
@@ -98,6 +131,11 @@ TEST_CASE("Ship Builder: Build Cruiser, Set Max Turret Count = 10", "[ShipBuilde
 	ship->SetShipMaxTurretCount(10);
 
 	REQUIRE(ship->getShipMaxTurretCount() == 10);
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 TEST_CASE("Initalize Player Ship Dreadnaught", "[PlayerShip]")
@@ -123,6 +161,11 @@ TEST_CASE("Initalize Player Ship Dreadnaught", "[PlayerShip]")
 		CHECK(ship->getShipMaxShieldStrength() == baseStats.maxShieldStrength);
 		CHECK(ship->getShipMaxTurretCount() == baseStats.maxTurretSlots);
 	}
+
+	delete shipBuilder;
+	shipBuilder = nullptr;
+	delete ship;
+	ship = nullptr;
 }
 
 SCENARIO("Player has gotten into a space battle with their ship")
@@ -161,5 +204,10 @@ SCENARIO("Player has gotten into a space battle with their ship")
 				}
 			}
 		}
+
+		delete shipBuilder;
+		shipBuilder = nullptr;
+		delete ship;
+		ship = nullptr;
 	}
 }
